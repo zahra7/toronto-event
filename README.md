@@ -39,7 +39,6 @@ Here’s a sneak peek at what’s coming soon:
 | Event | Date | Location | Description |
 |-------|------|----------|-------------|
 
-
 <!-- END:events -->
 
 ---
