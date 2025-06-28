@@ -2,7 +2,7 @@
 
 Welcome to **Toronto Events Hub** — your go-to destination for discovering what's happening around Toronto!
 
-![Toronto Skyline](https://images.unsplash.com/photo-1599999901458-9e0f5d272421?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
+![Toronto Skyline](https://github.com/zahra7/toronto-events/img/toronto.jpg)
 
 Stay up to date with the latest:
 
@@ -27,7 +27,7 @@ Our event listings are updated automatically from trusted sources, so you’ll a
 
 Toronto is one of the most vibrant and diverse cities in the world. From summer festivals at Harbourfront to cozy winter pop-ups downtown, there's always a reason to explore.
 
-![Event Crowd](https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
+![Event Crowd](https://github.com/zahra7/toronto-events/img/crowd.jpg)
 
 ---
 
@@ -48,7 +48,7 @@ Here’s a sneak peek at what’s coming soon:
 
 Want to suggest an event or help us improve the feed?
 
-- [Open an issue](https://github.com/yourusername/toronto-events/issues)
+- [Open an issue](https://github.com/zahra7/toronto-events/issues)
 - Submit a pull request
 - Or simply share this page with your friends!
 
@@ -57,9 +57,9 @@ Want to suggest an event or help us improve the feed?
 ## 📸 Gallery
 
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Food Festival" width="300"/> &nbsp;
-  <img src="https://images.unsplash.com/premium_photo-1681876474859-d68383754383?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Live Music" width="300"/> &nbsp;
-  <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Night Market" width="300"/>
+  <img src="https://github.com/zahra7/toronto-events/img/festival.jpg" alt="Food Festival" width="300"/> &nbsp;
+  <img src="https://github.com/zahra7/toronto-events/img/music.jpg" alt="Live Music" width="300"/> &nbsp;
+  <img src="https://github.com/zahra7/toronto-events/img/market.jpg" alt="Night Market" width="300"/>
 </div>
 
 ---
