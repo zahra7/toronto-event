@@ -44,6 +44,7 @@ Here’s a sneak peek at what’s coming soon:
 
 | Event | Date | Location | Description |
 |-------|------|----------|-------------|
+| Demo Event | Jan 1, 2026 | Toronto | This is a sample event row |
 
 <!-- END:events -->
 
