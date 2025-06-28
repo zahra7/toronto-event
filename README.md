@@ -23,14 +23,6 @@ Our event listings are updated automatically from trusted sources, so you’ll a
 
 ---
 
-## 🗓️ Latest Toronto Events
-
-<!-- START:events -->
-*Events will load here...*
-<!-- END:events -->
-
----
-
 ## 📍 Why Toronto?
 
 Toronto is one of the most vibrant and diverse cities in the world. From summer festivals at Harbourfront to cozy winter pop-ups downtown, there's always a reason to explore.
@@ -43,12 +35,9 @@ Toronto is one of the most vibrant and diverse cities in the world. From summer 
 
 Here’s a sneak peek at what’s coming soon:
 
-| Event | Date | Location |
-|-------|------|----------|
-| 🎬 **Toronto International Film Festival (TIFF)** | Sept 2025 | TIFF Bell Lightbox |
-| 🍲 **Taste of the Danforth** | Aug 2025 | Greektown |
-| 🌙 **Nuit Blanche** | Oct 2025 | City-wide |
-| 🎡 **CNE (Canadian National Exhibition)** | Aug–Sept 2025 | Exhibition Place |
+<!-- START:events -->
+_Toronto events will appear here..._
+<!-- END:events -->
 
 ---
 
