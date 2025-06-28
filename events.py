@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import feedparser
+import html
 
 RSS_URL = "https://feeds.feedburner.com/torontoevents"
 MAX_ITEMS = 30
@@ -18,10 +19,18 @@ for entry in feed.entries[:MAX_ITEMS]:
     # Parse HTML description
     soup = BeautifulSoup(entry.description, 'html.parser')
     paragraphs = [p.get_text().strip() for p in soup.find_all('p') if p.get_text().strip()]
+    paragraphs = []
+    for p in soup.find_all('p'):
+        raw = p.get_text().strip()
+        if raw:
+            clean = html.unescape(raw.replace('\n', ' ').replace('\r', ' ').strip())
+            paragraphs.append(clean)
+
+    description = " ".join(paragraphs)
 
     # Description
-    description = paragraphs[0] if paragraphs else "No description available"
-    truncated = (description[:47] + "...") if len(description) > 50 else description
+    if len(description) > 120:
+        description = description[:117].rstrip() + "..."
 
     # Location (from any <p> that looks like an address)
     location = "TBD"
@@ -34,7 +43,7 @@ for entry in feed.entries[:MAX_ITEMS]:
             break
 
     event_id = title.lower().replace(" ", "-").replace(":", "").replace("!", "").replace("’", "").replace("'", "")
-    row = f"| [{title}]({link}) | {date} | {location} | {truncated} [read more](#{event_id}) |"
+    row = f"| [{title}]({link}) | {date} | {location} | {description} [read more](#{event_id}) |"
     table_rows.append(row)
 
     full_descriptions.append((event_id, title, "\n".join(paragraphs)))
