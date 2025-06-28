@@ -35,7 +35,13 @@ Toronto is one of the most vibrant and diverse cities in the world. From summer 
 
 Here’s a sneak peek at what’s coming soon:
 
+| Event | Date | Location | Description |
+|-------|------|----------|-------------|
+| Acoustic Comedy December | Nov 24, 2016 | 154 Danforth Avenue | Comedy, improv, music, raffle |
+| CBC Sounds of the Season | Nov 24, 2016 | CBC Studio, Toronto | Live performances and fundraising |
+
 <!-- START:events -->
+
 | Event | Date | Location | Description |
 |-------|------|----------|-------------|
 
