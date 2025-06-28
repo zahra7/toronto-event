@@ -6,7 +6,7 @@ MAX_ITEMS = 30
 
 feed = feedparser.parse(RSS_URL)
 
-table_header = "| Event | Date | Location | Description |\n|-------|------|----------|-------------|"
+table_header = "\n| Event | Date | Location | Description |\n|-------|------|----------|-------------|"
 table_rows = []
 
 for entry in feed.entries[:MAX_ITEMS]:
@@ -41,7 +41,7 @@ with open("README.md", "r", encoding="utf-8") as f:
     content = f.read()
 
 start_marker = "<!-- START:events -->"
-end_marker = "<!-- END:events -->"
+end_marker = "\n<!-- END:events -->\n"
 
 start = content.find(start_marker) + len(start_marker)
 end = content.find(end_marker)

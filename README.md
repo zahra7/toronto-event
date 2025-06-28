@@ -36,6 +36,7 @@ Toronto is one of the most vibrant and diverse cities in the world. From summer 
 Here’s a sneak peek at what’s coming soon:
 
 <!-- START:events -->
+
 | Event | Date | Location | Description |
 |-------|------|----------|-------------|
 | [Electric Runway  Part Deux !](http://www.blogto.com/events/electric-runway-part-deux/) | Thu, 24 Nov 2016 | TBD | For life...For Fashion...Par L'Amour |
@@ -55,6 +56,7 @@ What is Jiggle Ball? Quite simply, it’s a two-stage je... |
 | [Comedy Wine Club](http://www.blogto.com/events/comedy-wine-club/) | Thu, 24 Nov 2016 | TBD | In collaboration with PATIO Interactive Inc & Project Spaces: |
 | [Borgeous at Factory Fridays - Uniun Nightclub](http://www.blogto.com/events/borgeous-at-factory-fridays-uniun-nightclub/) | Thu, 24 Nov 2016 | TBD | UNIUN Nightclub and Bud Light Canada present: BORGEOUS |
 | [Smirnoff Electric Nights at Uniun Nightclub](http://www.blogto.com/events/smirnoff-electric-nights-at-uniun-nightclub/) | Thu, 24 Nov 2016 | TBD | UNIUN Nightclub presents: |
+
 <!-- END:events -->
 
 ---
