@@ -35,16 +35,11 @@ Toronto is one of the most vibrant and diverse cities in the world. From summer 
 
 Here’s a sneak peek at what’s coming soon:
 
-| Event | Date | Location | Description |
-|-------|------|----------|-------------|
-| Acoustic Comedy December | Nov 24, 2016 | 154 Danforth Avenue | Comedy, improv, music, raffle |
-| CBC Sounds of the Season | Nov 24, 2016 | CBC Studio, Toronto | Live performances and fundraising |
-
 <!-- START:events -->
 
 | Event | Date | Location | Description |
 |-------|------|----------|-------------|
-| Demo Event | Jan 1, 2026 | Toronto | This is a sample event row |
+| [Electric Runway  Part Deux !](http://www.blogto.com/events/electric-runway-part-deux/) | Thu, 24 Nov 2016 | TBD | For life...For Fashion...Par L'Amour |
 
 <!-- END:events -->
 
