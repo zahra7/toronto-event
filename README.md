@@ -2,7 +2,7 @@
 
 Welcome to **Toronto Events Hub** — your go-to destination for discovering what's happening around Toronto!
 
-![Toronto Skyline](https://github.com/zahra7/toronto-event/blob/main/img/toronto.jpg)
+![Toronto Skyline](https://zahra7.github.io/toronto-event/img/toronto.jpg)
 
 Stay up to date with the latest:
 
@@ -27,7 +27,7 @@ Our event listings are updated automatically from trusted sources, so you’ll a
 
 Toronto is one of the most vibrant and diverse cities in the world. From summer festivals at Harbourfront to cozy winter pop-ups downtown, there's always a reason to explore.
 
-![Event Crowd](https://github.com/zahra7/toronto-event/blob/main/img/crowd.jpg)
+![Event Crowd](https://zahra7.github.io/toronto-event/img/crowd.jpg)
 
 ---
 
@@ -57,9 +57,9 @@ Want to suggest an event or help us improve the feed?
 ## 📸 Gallery
 
 <div align="center">
-  <img src="https://github.com/zahra7/toronto-event/blob/main/img/festival.jpg" alt="Food Festival" width="300"/> &nbsp;
-  <img src="https://github.com/zahra7/toronto-event/blob/main/img/music.jpg" alt="Live Music" width="300"/> &nbsp;
-  <img src="https://github.com/zahra7/toronto-event/blob/main/img/market.jpg" alt="Night Market" width="300"/>
+  <img src="https://zahra7.github.io/toronto-event/img/festival.jpg" alt="Food Festival" width="300"/> &nbsp;
+  <img src="https://zahra7.github.io/toronto-event/img/music.jpg" alt="Live Music" width="300"/> &nbsp;
+  <img src="https://zahra7.github.io/toronto-event/img/market.jpg" alt="Night Market" width="300"/>
 </div>
 
 ---
