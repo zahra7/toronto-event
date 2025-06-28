@@ -33,8 +33,11 @@ for entry in feed.entries[:MAX_ITEMS]:
             location = para
             break
 
-    row = f"| [{title}]({link}) | {date} | {location} | {truncated} |"
+    event_id = title.lower().replace(" ", "-").replace(":", "").replace("!", "").replace("’", "").replace("'", "")
+    row = f"| [{title}]({link}) | {date} | {location} | {truncated} [read more](#{event_id}) |"
     table_rows.append(row)
+
+    full_descriptions.append((event_id, title, "\n".join(paragraphs)))
 
 # Inject into README.md
 with open("README.md", "r", encoding="utf-8") as f:
@@ -47,6 +50,13 @@ start = content.find(start_marker) + len(start_marker)
 end = content.find(end_marker)
 
 updated = content[:start] + "\n" + table_header + "\n" + "\n".join(table_rows) + "\n" + content[end:]
+
+# Add full description section
+full_desc_md = "\n\n## 📄 Full Descriptions\n"
+for event_id, title, full_desc in full_descriptions:
+    full_desc_md += f"\n### {title}\n<a name=\"{event_id}\"></a>\n{full_desc}\n\n---\n"
+
+updated += "\n" + full_desc_md
 
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(updated)
