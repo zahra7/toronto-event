@@ -8,6 +8,7 @@ feed = feedparser.parse(RSS_URL)
 
 table_header = "\n| Event | Date | Location | Description |\n|-------|------|----------|-------------|"
 table_rows = []
+full_descriptions = []
 
 for entry in feed.entries[:MAX_ITEMS]:
     title = entry.title
@@ -20,8 +21,7 @@ for entry in feed.entries[:MAX_ITEMS]:
 
     # Description
     description = paragraphs[0] if paragraphs else "No description available"
-    if len(description) > 100:
-        description = description[:97] + "..."
+    truncated = (description[:47] + "...") if len(description) > 50 else description
 
     # Location (from any <p> that looks like an address)
     location = "TBD"
@@ -33,7 +33,7 @@ for entry in feed.entries[:MAX_ITEMS]:
             location = para
             break
 
-    row = f"| [{title}]({link}) | {date} | {location} | {description} |"
+    row = f"| [{title}]({link}) | {date} | {location} | {truncated} |"
     table_rows.append(row)
 
 # Inject into README.md
