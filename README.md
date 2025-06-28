@@ -38,7 +38,7 @@ Here’s a sneak peek at what’s coming soon:
 <!-- START:events -->
 | Event | Date | Location | Description |
 |-------|------|----------|-------------|
-| [Electric Runway  Part Deux !](http://www.blogto.com/events/electric-runway-part-deux/) | Thu, 24 Nov 2016 | TBD | For life...For Fashion...Par L'Amour |
+
 
 <!-- END:events -->
 
