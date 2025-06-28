@@ -23,6 +23,14 @@ Our event listings are updated automatically from trusted sources, so you’ll a
 
 ---
 
+## 🗓️ Latest Toronto Events
+
+<!-- START:events -->
+*Events will load here...*
+<!-- END:events -->
+
+---
+
 ## 📍 Why Toronto?
 
 Toronto is one of the most vibrant and diverse cities in the world. From summer festivals at Harbourfront to cozy winter pop-ups downtown, there's always a reason to explore.

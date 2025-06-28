@@ -1,14 +1,26 @@
-import yaml
-import xml.etree.ElementTree as xmlTree
+# update_readme.py
 
-with open('events.yaml', 'r') as file:
-    yamlData = yaml.safe_load(file);
+import feedparser
 
-    rssElement = xmlTree.Element('rss', {'version':'2.0',
-        'xmlns:atom':'http://www.w3.org/2005/Atom',
-        'xmlns:georss':'http://www.georss.org/georss'});
-    channelElement = xmlTree.SubElement(rssElement, 'channel');
-    xmlTree.SubElement(channelElement, 'title').text = yamlData['title'];
+RSS_URL = "https://feeds.feedburner.com/torontoevents"
+MAX_ITEMS = 5
 
-    outputTree = xmlTree.ElementTree(rssElement);
-    outputTree.write('event.xml', encoding='UTF-8', xml_declaration=True);
+feed = feedparser.parse(RSS_URL)
+
+with open("README.md", "r", encoding="utf-8") as f:
+    content = f.read()
+
+start_marker = "<!-- START:events -->"
+end_marker = "<!-- END:events -->"
+
+events_md = "\n".join(
+    [f"{i+1}. [{entry.title}]({entry.link}) — {entry.published[:10]}" for i, entry in enumerate(feed.entries[:MAX_ITEMS])]
+)
+
+# Replace content between markers
+start = content.find(start_marker) + len(start_marker)
+end = content.find(end_marker)
+new_content = content[:start] + "\n" + events_md + "\n" + content[end:]
+
+with open("README.md", "w", encoding="utf-8") as f:
+    f.write(new_content)
