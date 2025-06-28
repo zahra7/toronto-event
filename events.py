@@ -16,7 +16,7 @@ for entry in feed.entries[:MAX_ITEMS]:
     
     # Try to extract a location from the description using regex
     desc = entry.description.replace('\n', ' ')
-    match = re.search(r'(?<=Theatre,|at|in)\s+([A-Z][a-z]+.+?)<', desc)
+    match = re.search(r'(?:Theatre,|at|in)\s+([A-Z][^<]+)', desc)
     location = match.group(1).strip() if match else "TBD"
     
     row = f"| [{title}]({link}) | {date} | {location} |"
