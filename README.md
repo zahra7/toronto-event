@@ -58,7 +58,7 @@ Want to suggest an event or help us improve the feed?
 
 <div align="center">
   <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Food Festival" width="300"/> &nbsp;
-  <img src="https://images.unsplash.com/photo-1526655009434-bb679c52f6c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Live Music" width="300"/> &nbsp;
+  <img src="https://images.unsplash.com/premium_photo-1681876474859-d68383754383?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Live Music" width="300"/> &nbsp;
   <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Night Market" width="300"/>
 </div>
 
