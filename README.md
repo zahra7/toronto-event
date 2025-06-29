@@ -42,31 +42,31 @@ The script uses:
 git clone https://github.com/your-username/toronto-events.git
 cd toronto-events
 ```
-2. Install dependencies
+### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
 # Or with using playwright:
 pip install playwright
 playwright install
 ```
-3. Run the script
+### 3. Run the script
 ```bash
 python events.py
 ```
 This will generate or overwrite docs/index.md with the latest event table.
 
-🌐 View the GitHub Pages Site
+## 🌐 View the GitHub Pages Site
 Once deployed, your live events page will be available at:
 
 https://your-username.github.io/toronto-events/
 Make sure GitHub Pages is enabled with the docs folder as the source.
 
-⚙️ Optional: Automate with GitHub Actions
+## ⚙️ Optional: Automate with GitHub Actions
 You can set up a GitHub Actions workflow to update your site daily.
 
 See .github/workflows/rss-update.yml for an example.
 
-📄 License
+## 📄 License
 MIT License. Feel free to use, modify, or contribute.
 
 Made with ❤️ for the Toronto community.

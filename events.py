@@ -22,6 +22,17 @@ soup = BeautifulSoup(html, "html.parser")
 
 events = []
 
+def clean_md_cell(text):
+    if not text:
+        return ""
+    # Remove newlines and tabs, replace with space
+    text = re.sub(r'[\r\n\t]+', ' ', text)
+    # Replace pipe chars with similar safe char (e.g. │ or just space)
+    text = text.replace('|', '│')
+    # Normalize multiple spaces
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
 # Select each event card
 for card in soup.select("div.event-info-box")[:25]:
     try:
@@ -67,8 +78,11 @@ table_header = "|                | Event | Date | Location | Description |\n|---
 rows = []
 for img, title, link, date, venue, desc in events:
     markdown_img = f'<img src="{img}" width="120"/>' if img else ""
-    markdown_link = f"[{title}]({link})"
-    rows.append(f"| {markdown_img} | {markdown_link} | {date} | {venue} | {desc} |")
+    markdown_link = f"[{clean_md_cell(title)}]({link})"
+    clean_date = clean_md_cell(date)
+    clean_venue = clean_md_cell(venue)
+    clean_desc = clean_md_cell(desc)
+    rows.append(f"| {markdown_img} | {markdown_link} | {clean_date} | {clean_venue} | {clean_desc} |")
 
 table_content = table_header + "\n" + "\n".join(rows)
 
