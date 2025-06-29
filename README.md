@@ -41,13 +41,18 @@ The script uses:
 ```bash
 git clone https://github.com/your-username/toronto-events.git
 cd toronto-events
+```
 2. Install dependencies
+```bash
 pip install -r requirements.txt
-# Or if using playwright:
+# Or with using playwright:
 pip install playwright
 playwright install
+```
 3. Run the script
+```bash
 python events.py
+```
 This will generate or overwrite docs/index.md with the latest event table.
 
 🌐 View the GitHub Pages Site
