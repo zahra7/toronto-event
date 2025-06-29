@@ -48,11 +48,11 @@ for card in soup.select("div.event-info-box")[:10]:
         print("Skipping an event due to error:", e)
 
 
-table_header = "| Image | Event | Date | Location | Description |\n|-------|-------|------|----------|-------------|"
+table_header = "| | Event | Date | Location | Description |\n|-------|-------|------|----------|-------------|"
 
 rows = []
 for img, title, link, date, venue, desc in events:
-    markdown_img = f"![]({img})" if img else ""
+    markdown_img = f'<img src="{img}" width="120"/>' if img else ""
     markdown_link = f"[{title}]({link})"
     rows.append(f"| {markdown_img} | {markdown_link} | {date} | {venue} | {desc} |")
 
