@@ -16,7 +16,7 @@ Check out the latest Toronto events at:
 
 ## 📁 Project Structure
 
-.
+```
 ├── events.py # Scraper that generates the event feed
 ├── docs/
 │ └── index.md # GitHub Pages home (auto-updated)
@@ -24,6 +24,7 @@ Check out the latest Toronto events at:
 │ └── workflows/
 │ └── rss-update.yml # GitHub Actions automation (optional)
 ├── README.md # You're reading it
+```
 
 ## 🧠 How It Works
 

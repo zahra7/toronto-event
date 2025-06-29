@@ -2,7 +2,7 @@ name: Update Events
 
 on:
   schedule:
-    - cron: '50 17 * * *'  # Runs daily at 5:00 AM Toronto time (09:00 UTC)
+    - cron: '45 18 * * *'  # Runs daily at 5:00 AM Toronto time (09:00 UTC)
   workflow_dispatch:      # Allows manual trigger
 
 permissions:
@@ -23,7 +23,8 @@ jobs:
 
       - name: 📦 Install dependencies
         run: |
-          pip install beautifulsoup4 requests
+          pip install -r requirements.txt
+          python -m playwright install chromium
 
       - name: 📝 Run event scraper
         run: python events.py
