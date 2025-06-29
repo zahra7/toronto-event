@@ -21,7 +21,7 @@ soup = BeautifulSoup(html, "html.parser")
 events = []
 
 # Select each event card
-for card in soup.select("div.event-info-box")[:]:
+for card in soup.select("div.event-info-box")[:10]:
     try:
         title_tag = card.select_one(".event-info-box-title-link")
         title = title_tag.get_text(strip=True)
@@ -48,11 +48,11 @@ for card in soup.select("div.event-info-box")[:]:
         print("Skipping an event due to error:", e)
 
 
-table_header = "| | Event | Date | Location | Description |\n|-------|-------|------|----------|-------------|"
+table_header = "|              | Event | Date | Location | Description |\n|--------------|-------|------|----------|-------------|"
 
 rows = []
 for img, title, link, date, venue, desc in events:
-    markdown_img = f'<img src="{img}" width="120"/>' if img else ""
+    markdown_img = f'<img src="{img}" width="60"/>' if img else ""
     markdown_link = f"[{title}]({link})"
     rows.append(f"| {markdown_img} | {markdown_link} | {date} | {venue} | {desc} |")
 
