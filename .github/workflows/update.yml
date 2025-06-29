@@ -1,4 +1,4 @@
-name: Update Events
+name: Update Toronto Events
 
 on:
   schedule:
