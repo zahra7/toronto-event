@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 from dateutil import parser as dateparser
 from playwright.sync_api import sync_playwright
+import re
+from html import unescape
 
 
 BASE_URL = "https://www.blogto.com/events/"
@@ -33,9 +35,21 @@ for card in soup.select("div.event-info-box")[:10]:
         img_url = img_tag["src"] if img_tag else ""
 
         desc_tag = card.select_one("p.event-info-box-description")
-        description = " ".join(desc_tag.stripped_strings) if desc_tag else ""
-        if len(description) > 50:
-            description = description[:47] + "..."
+        desc_tag = card.select_one("p.event-info-box-description")
+        if desc_tag:
+            # Join all text parts, unescape HTML entities
+            raw_desc = " ".join(desc_tag.stripped_strings)
+            raw_desc = unescape(raw_desc)
+
+            # Remove excessive whitespace and control characters
+            description = re.sub(r"[\r\n]+", " ", raw_desc)              # remove line breaks
+            description = re.sub(r"\s+", " ", description).strip()       # normalize spacing
+
+            # Optional: truncate if too long
+            if len(description) > 100:
+                description = description[:97] + "..."
+        else:
+            description = ""
 
         venue_tag = card.select_one("div.event-info-box-venue span")
         venue = venue_tag.get_text(strip=True) if venue_tag else "TBD"
