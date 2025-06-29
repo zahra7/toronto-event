@@ -21,7 +21,7 @@ soup = BeautifulSoup(html, "html.parser")
 events = []
 
 # Select each event card
-for card in soup.select("div.event-info-box")[:10]:
+for card in soup.select("div.event-info-box")[:]:
     try:
         title_tag = card.select_one(".event-info-box-title-link")
         title = title_tag.get_text(strip=True)
@@ -63,7 +63,7 @@ with open("README.md", "r", encoding="utf-8") as f:
     content = f.read()
 
 start_marker = "<!-- START:events -->\n"
-end_marker = "<!-- END:events -->"
+end_marker = "\n<!-- END:events -->"
 
 start = content.find(start_marker) + len(start_marker)
 end = content.find(end_marker)
