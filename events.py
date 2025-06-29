@@ -23,7 +23,7 @@ soup = BeautifulSoup(html, "html.parser")
 events = []
 
 # Select each event card
-for card in soup.select("div.event-info-box")[:20]:
+for card in soup.select("div.event-info-box")[:25]:
     try:
         title_tag = card.select_one(".event-info-box-title-link")
         title = title_tag.get_text(strip=True)
