@@ -52,7 +52,7 @@ table_header = "|              | Event | Date | Location | Description |\n|-----
 
 rows = []
 for img, title, link, date, venue, desc in events:
-    markdown_img = f'<img src="{img}" width="100"/>' if img else ""
+    markdown_img = f'<img src="{img}" width="90"/>' if img else ""
     markdown_link = f"[{title}]({link})"
     rows.append(f"| {markdown_img} | {markdown_link} | {date} | {venue} | {desc} |")
 
