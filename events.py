@@ -23,7 +23,7 @@ soup = BeautifulSoup(html, "html.parser")
 events = []
 
 # Select each event card
-for card in soup.select("div.event-info-box")[:10]:
+for card in soup.select("div.event-info-box")[:20]:
     try:
         title_tag = card.select_one(".event-info-box-title-link")
         title = title_tag.get_text(strip=True)
@@ -72,8 +72,8 @@ for img, title, link, date, venue, desc in events:
 
 table_content = table_header + "\n" + "\n".join(rows)
 
-# Inject into README.md
-with open("README.md", "r", encoding="utf-8") as f:
+# Inject into index.md
+with open("docs/index.md", "r", encoding="utf-8") as f:
     content = f.read()
 
 start_marker = "<!-- START:events -->\n"
@@ -84,5 +84,5 @@ end = content.find(end_marker)
 
 updated = content[:start] + "\n" + table_content + "\n" + content[end:]
 
-with open("README.md", "w", encoding="utf-8") as f:
+with open("docs/index.md", "w", encoding="utf-8") as f:
     f.write(updated)
