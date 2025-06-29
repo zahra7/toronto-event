@@ -1,71 +1,74 @@
+import requests
 from bs4 import BeautifulSoup
-import feedparser
-import html
+from dateutil import parser as dateparser
+from playwright.sync_api import sync_playwright
 
-RSS_URL = "https://feeds.feedburner.com/torontoevents"
-MAX_ITEMS = 30
 
-feed = feedparser.parse(RSS_URL)
+BASE_URL = "https://www.blogto.com/events/"
+resp = requests.get(BASE_URL)
 
-table_header = "\n| Event | Date | Location | Description |\n|-------|------|----------|-------------|"
-table_rows = []
-full_descriptions = []
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto(BASE_URL, timeout=60000)
+    page.wait_for_selector(".event-info-box", timeout=10000)  # Wait until events load
 
-for entry in feed.entries[:MAX_ITEMS]:
-    title = entry.title
-    link = entry.link
-    date = entry.published[:16]
+    html = page.content()
+    browser.close()
 
-    # Parse HTML description
-    soup = BeautifulSoup(entry.description, 'html.parser')
-    paragraphs = [p.get_text().strip() for p in soup.find_all('p') if p.get_text().strip()]
-    paragraphs = []
-    for p in soup.find_all('p'):
-        raw = p.get_text().strip()
-        if raw:
-            clean = html.unescape(raw.replace('\n', ' ').replace('\r', ' ').strip())
-            paragraphs.append(clean)
+soup = BeautifulSoup(html, "html.parser")
 
-    description = " ".join(paragraphs)
+events = []
 
-    # Description
-    if len(description) > 120:
-        description = description[:117].rstrip() + "..."
+# Select each event card
+for card in soup.select("div.event-info-box")[:10]:
+    try:
+        title_tag = card.select_one(".event-info-box-title-link")
+        title = title_tag.get_text(strip=True)
+        link = title_tag['href']
+        if not link.startswith("http"):
+            link = "https://www.blogto.com" + link
 
-    # Location (from any <p> that looks like an address)
-    location = "TBD"
-    for para in paragraphs:
-        if (
-            any(word in para.lower() for word in ['street', 'avenue', 'road', 'place', 'toronto']) and
-            len(para.split()) < 15
-        ):
-            location = para
-            break
+        img_tag = card.select_one("img.event-info-box-image")
+        img_url = img_tag["src"] if img_tag else ""
 
-    event_id = title.lower().replace(" ", "-").replace(":", "").replace("!", "").replace("’", "").replace("'", "")
-    row = f"| [{title}]({link}) | {date} | {location} | {description} [read more](#{event_id}) |"
-    table_rows.append(row)
+        desc_tag = card.select_one("p.event-info-box-description")
+        description = desc_tag.get_text(separator=" ", strip=True) if desc_tag else ""
+        if len(description) > 100:
+            description = description[:97] + "..."
 
-    full_descriptions.append((event_id, title, "\n".join(paragraphs)))
+        venue_tag = card.select_one("div.event-info-box-venue span")
+        venue = venue_tag.get_text(strip=True) if venue_tag else "TBD"
+
+        date_tag = card.select_one("div.event-info-box-date")
+        date = date_tag.get_text(strip=True) if date_tag else "TBD"
+
+        events.append((img_url, title, link, date, venue, description))
+    except Exception as e:
+        print("Skipping an event due to error:", e)
+
+
+table_header = "| Image | Event | Date | Location | Description |\n|-------|-------|------|----------|-------------|"
+
+rows = []
+for img, title, link, date, venue, desc in events:
+    markdown_img = f"![]({img})" if img else ""
+    markdown_link = f"[{title}]({link})"
+    rows.append(f"| {markdown_img} | {markdown_link} | {date} | {venue} | {desc} |")
+
+table_content = table_header + "\n" + "\n".join(rows)
 
 # Inject into README.md
 with open("README.md", "r", encoding="utf-8") as f:
     content = f.read()
 
-start_marker = "<!-- START:events -->"
-end_marker = "\n<!-- END:events -->\n"
+start_marker = "<!-- START:events -->\n"
+end_marker = "<!-- END:events -->"
 
 start = content.find(start_marker) + len(start_marker)
 end = content.find(end_marker)
 
-updated = content[:start] + "\n" + table_header + "\n" + "\n".join(table_rows) + "\n" + content[end:]
-
-# Add full description section
-full_desc_md = "\n\n## 📄 Full Descriptions\n"
-for event_id, title, full_desc in full_descriptions:
-    full_desc_md += f"\n### {title}\n<a name=\"{event_id}\"></a>\n{full_desc}\n\n---\n"
-
-updated += "\n" + full_desc_md
+updated = content[:start] + "\n" + table_content + "\n" + content[end:]
 
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(updated)
