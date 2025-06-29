@@ -20,17 +20,19 @@ Check out the latest Toronto events at:
 ├── events.py # Scraper that generates the event feed
 ├── docs/
 │ └── index.md # GitHub Pages home (auto-updated)
+| └── img/
 ├── .github/
 │ └── workflows/
-│ └── rss-update.yml # GitHub Actions automation (optional)
+│   └── update.yml # GitHub Actions automation (optional)
 ├── README.md # You're reading it
+├── requirements.txt
 ```
 
 ## 🧠 How It Works
 
 The script uses:
 
-- `requests` or `playwright` to fetch the event data
+- `requests` and `playwright` to fetch the event data
 - `BeautifulSoup` to parse the HTML
 - Python string processing to generate Markdown
 - GitHub Actions to run the script on a schedule

@@ -1,18 +1,15 @@
-import requests
 from bs4 import BeautifulSoup
-from dateutil import parser as dateparser
 from playwright.sync_api import sync_playwright
 import re
 from html import unescape
 
-
-BASE_URL = "https://www.blogto.com/events/"
-resp = requests.get(BASE_URL)
+BASE_URL = "https://www.blogto.com"
+EVENT_URL = BASE_URL + "/events/"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
     page = browser.new_page()
-    page.goto(BASE_URL, timeout=60000)
+    page.goto(EVENT_URL, timeout=60000)
     page.wait_for_selector(".event-info-box", timeout=10000)  # Wait until events load
 
     html = page.content()
@@ -40,7 +37,7 @@ for card in soup.select("div.event-info-box")[:25]:
         title = title_tag.get_text(strip=True)
         link = title_tag['href']
         if not link.startswith("http"):
-            link = "https://www.blogto.com" + link
+            link = BASE_URL + link
 
         img_tag = card.select_one("img.event-info-box-image")
         img_url = img_tag["src"] if img_tag else ""
