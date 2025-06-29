@@ -33,7 +33,7 @@ for card in soup.select("div.event-info-box")[:10]:
         img_url = img_tag["src"] if img_tag else ""
 
         desc_tag = card.select_one("p.event-info-box-description")
-        description = desc_tag.get_text(separator=" ", strip=True) if desc_tag else ""
+        description = " ".join(desc_tag.stripped_strings) if desc_tag else ""
         if len(description) > 100:
             description = description[:97] + "..."
 
@@ -52,7 +52,7 @@ table_header = "|              | Event | Date | Location | Description |\n|-----
 
 rows = []
 for img, title, link, date, venue, desc in events:
-    markdown_img = f'<img src="{img}" width="60"/>' if img else ""
+    markdown_img = f'<img src="{img}" width="120"/>' if img else ""
     markdown_link = f"[{title}]({link})"
     rows.append(f"| {markdown_img} | {markdown_link} | {date} | {venue} | {desc} |")
 
